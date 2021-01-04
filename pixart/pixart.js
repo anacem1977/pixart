@@ -7,5 +7,7 @@ function getColor(event) {
     event.preventDefault();
     const colorField = document.querySelector("#color-field");
     console.log(colorField.value);
-    document.body.style.backgroundColor = colorField.value; 
+    document.querySelector(".brush").style.backgroundColor = colorField.value;
 }
+
+

@@ -36,8 +36,6 @@ for (i=1; i <=total; i++) {
 const clicked = document.querySelector(".container");
 clicked.addEventListener("mouseover", changeColor);
 
-let j=1;
-function changeColor () {
-    document.getElementById("div" + j).style.backgroundColor = document.querySelector(".brush").style.backgroundColor;
-    j += 1;
-}
+function changeColor(evt) {
+    evt.target.style.backgroundColor = document.querySelector(".brush").style.backgroundColor;
+  }

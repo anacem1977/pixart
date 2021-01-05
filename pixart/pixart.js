@@ -8,10 +8,14 @@ const form = document.querySelector("form");
 form.addEventListener("submit", getColor);
 form.addEventListener("enter", checkEnter);
 
+const colorsArray = [];
+
 function getColor(event) {
     event.preventDefault();
     const colorField = document.querySelector("#color-field");
     document.querySelector(".brush").style.backgroundColor = colorField.value;
+    colorsArray.push(colorField.value);
+    console.log(colorsArray);
 }
 
 //w3schools.com

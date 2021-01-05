@@ -1,8 +1,12 @@
 console.log("Up and running");
 
+const cont = document.createElement("div");
+    cont.setAttribute("class", "container");
+    document.querySelector("body").appendChild(cont);
+
 const form = document.querySelector("form");
 form.addEventListener("submit", getColor);
-form.addEventListener("enter", checkKey);
+form.addEventListener("enter", checkEnter);
 
 function getColor(event) {
     event.preventDefault();
@@ -12,7 +16,7 @@ function getColor(event) {
 }
 
 //w3schools.com
-function checkKey(event) {
+function checkEnter(event) {
     if (event.keyCode === 13) {
         getColor(event)
     }
@@ -22,8 +26,7 @@ function addPixel(i) {
     const pix = document.createElement("div");
     pix.setAttribute("class", "square");
     pix.setAttribute("id", "div" +i);
-    document.querySelector("body").appendChild(pix);
-    console.log(pix);
+    document.querySelector(".container").appendChild(pix);
 }
 
 let total = 20;
@@ -31,12 +34,12 @@ for (i=1; i <=total; i++) {
     addPixel(i);
 }
 
-const clicked = document.querySelector("body");
+const clicked = document.querySelector(".container");
 clicked.addEventListener("click", changeColor);
 
 let j=1;
 function changeColor () {
-    document.getElementById("div" + j).style.backgroundColor = "green";
+    document.getElementById("div" + j).style.backgroundColor = document.querySelector(".brush").style.backgroundColor;
     document.getElementById("div" + j).className += " painted";
     j += 1;
 }

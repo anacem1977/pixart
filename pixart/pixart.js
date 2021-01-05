@@ -17,3 +17,17 @@ function checkKey(event) {
         getColor(event)
     }
 }
+
+function addPixel () {
+    const node = document.createElement("div");
+    const textnode = document.createTextNode(" ");
+    node.appendChild(textnode);
+    document.querySelector("body").appendChild(node).className = "square";
+    document.querySelector(".square").style.backgroundColor = "#E7E5D";
+    document.querySelector(".square").style.width = "10px";
+    document.querySelector(".square").style.height = "10px";
+}
+
+for (i=0; i <=20; i++) {
+    addPixel();
+}

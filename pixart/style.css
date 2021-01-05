@@ -29,6 +29,6 @@ body {
   background-image: url('ps_neutral.png');
 }
 
-.off {
+.off, .on {
   font-family: Monoton;
 }

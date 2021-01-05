@@ -48,20 +48,26 @@ function changeColor(evtH) {
 
 function turnOff() {
     hovered.removeEventListener("mouseover", changeColor);
-    clicked.addEventListener("click", changeColor);
+    clicked.addEventListener("click", turnOn);
     const brushOff = document.createElement("h3");
     const brushOffTxt = document.createTextNode("Paintbrush Off");
     brushOff.setAttribute("class", "off");
     brushOff.appendChild(brushOffTxt);
     document.querySelector(".controls").appendChild(brushOff);
+    if (document.querySelector(".on")) {
+        document.querySelector(".on").style.display = "none";
+    }
 }
-
-/*
-const clickedAgain = document.querySelector(".container");
-clickedAgain.addEventListener("click", turnOn);
 
 function turnOn() {
     hovered.addEventListener("mouseover", changeColor);
-    clickedAgain.removeEventListener("click", changeColor);
+    clicked.addEventListener("click", turnOff);
+    const brushOn = document.createElement("h3");
+    const brushOnTxt = document.createTextNode("Paintbrush On");
+    brushOn.setAttribute("class", "on");
+    brushOn.appendChild(brushOnTxt);
+    document.querySelector(".controls").appendChild(brushOn);
+    if (document.querySelector(".off")) {
+        document.querySelector(".off").style.display = "none";
+    }
 }
-*/

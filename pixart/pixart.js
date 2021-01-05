@@ -21,20 +21,19 @@ function checkEnter(event) {
     }
 }
 
-function addPixel(i) {
+function addPixel() {
     const pix = document.createElement("div");
     pix.setAttribute("class", "square");
-    pix.setAttribute("id", "div" +i);
     document.querySelector(".container").appendChild(pix);
 }
 
 let total = 8000;
 for (i=1; i <=total; i++) {
-    addPixel(i);
+    addPixel();
 }
 
-const clicked = document.querySelector(".container");
-clicked.addEventListener("mouseover", changeColor);
+const hovered = document.querySelector(".container");
+hovered.addEventListener("mouseover", changeColor);
 
 function changeColor(evt) {
     evt.target.style.backgroundColor = document.querySelector(".brush").style.backgroundColor;

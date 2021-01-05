@@ -18,16 +18,25 @@ function checkKey(event) {
     }
 }
 
-function addPixel () {
-    const node = document.createElement("div");
-    const textnode = document.createTextNode(" ");
-    node.appendChild(textnode);
-    document.querySelector("body").appendChild(node).className = "square";
-    document.querySelector(".square").style.backgroundColor = "#E7E5D";
-    document.querySelector(".square").style.width = "10px";
-    document.querySelector(".square").style.height = "10px";
+function addPixel(i) {
+    const pix = document.createElement("div");
+    pix.setAttribute("class", "square");
+    pix.setAttribute("id", "div" +i);
+    document.querySelector("body").appendChild(pix);
+    console.log(pix);
 }
 
-for (i=0; i <=20; i++) {
-    addPixel();
+let total = 20;
+for (i=1; i <=total; i++) {
+    addPixel(i);
+}
+
+const clicked = document.querySelector("body");
+clicked.addEventListener("click", changeColor);
+
+let j=1;
+function changeColor () {
+    document.getElementById("div" + j).style.backgroundColor = "green";
+    document.getElementById("div" + j).className += " painted";
+    j += 1;
 }

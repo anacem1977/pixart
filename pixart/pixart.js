@@ -11,7 +11,6 @@ form.addEventListener("enter", checkEnter);
 function getColor(event) {
     event.preventDefault();
     const colorField = document.querySelector("#color-field");
-    console.log(colorField.value);
     document.querySelector(".brush").style.backgroundColor = colorField.value;
 }
 
@@ -29,17 +28,16 @@ function addPixel(i) {
     document.querySelector(".container").appendChild(pix);
 }
 
-let total = 20;
+let total = 8000;
 for (i=1; i <=total; i++) {
     addPixel(i);
 }
 
 const clicked = document.querySelector(".container");
-clicked.addEventListener("click", changeColor);
+clicked.addEventListener("mouseover", changeColor);
 
 let j=1;
 function changeColor () {
     document.getElementById("div" + j).style.backgroundColor = document.querySelector(".brush").style.backgroundColor;
-    document.getElementById("div" + j).className += " painted";
     j += 1;
 }

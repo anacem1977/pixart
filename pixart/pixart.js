@@ -39,6 +39,29 @@ for (i=1; i <=total; i++) {
 const hovered = document.querySelector(".container");
 hovered.addEventListener("mouseover", changeColor);
 
-function changeColor(evt) {
-    evt.target.style.backgroundColor = document.querySelector(".brush").style.backgroundColor;
+const clicked = document.querySelector(".container");
+clicked.addEventListener("click", turnOff);
+
+function changeColor(evtH) {
+    evtH.target.style.backgroundColor = document.querySelector(".brush").style.backgroundColor;
   }
+
+function turnOff() {
+    hovered.removeEventListener("mouseover", changeColor);
+    clicked.addEventListener("click", changeColor);
+    const brushOff = document.createElement("h3");
+    const brushOffTxt = document.createTextNode("Paintbrush Off");
+    brushOff.setAttribute("class", "off");
+    brushOff.appendChild(brushOffTxt);
+    document.querySelector(".controls").appendChild(brushOff);
+}
+
+/*
+const clickedAgain = document.querySelector(".container");
+clickedAgain.addEventListener("click", turnOn);
+
+function turnOn() {
+    hovered.addEventListener("mouseover", changeColor);
+    clickedAgain.removeEventListener("click", changeColor);
+}
+*/

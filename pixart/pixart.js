@@ -48,6 +48,18 @@ function changeColor(evtH) {
     evtH.target.style.backgroundColor = document.querySelector(".brush").style.backgroundColor;
   }
 
+//CREATE TURN OFF MESSAGE
+const brushOff = document.createElement("h3");
+const brushOffTxt = document.createTextNode("Paintbrush Off");
+brushOff.setAttribute("class", "off");
+brushOff.appendChild(brushOffTxt);
+
+//CREATE TURN ON MESSAGE
+const brushOn = document.createElement("h3");
+const brushOnTxt = document.createTextNode("Paintbrush On");
+brushOn.setAttribute("class", "on");
+brushOn.appendChild(brushOnTxt);
+
 //at first click
     //it shold turn the pain off and set a message
 //at second click
@@ -72,27 +84,19 @@ function turnOnOff () {
 function turnOff() {
     console.log("Running turnOff");
     hovered.removeEventListener("mouseover", changeColor);
-    clicked.addEventListener("click", turnOn);
-    const brushOff = document.createElement("h3");
-    const brushOffTxt = document.createTextNode("Paintbrush Off");
-    brushOff.setAttribute("class", "off");
-    brushOff.appendChild(brushOffTxt);
     document.querySelector(".controls").appendChild(brushOff);
     if (document.querySelector(".on")) {
         document.querySelector(".on").style.display = "none";
+        document.querySelector(".off").style.display = "initial";
     }
 }
 
 function turnOn() {
     console.log("Running turnOn");
     hovered.addEventListener("mouseover", changeColor);
-    clicked.removeEventListener("click", turnOff);
-    const brushOn = document.createElement("h3");
-    const brushOnTxt = document.createTextNode("Paintbrush On");
-    brushOn.setAttribute("class", "on");
-    brushOn.appendChild(brushOnTxt);
     document.querySelector(".controls").appendChild(brushOn);
     if (document.querySelector(".off")) {
         document.querySelector(".off").style.display = "none";
+        document.querySelector(".on").style.display = "initial";
     }
 }

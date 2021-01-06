@@ -8,15 +8,32 @@ const form = document.querySelector("form");
 form.addEventListener("submit", getColor);
 form.addEventListener("enter", checkEnter);
 
+//CREATE BOX FOR COLOR SWATCH
+const box1 = document.createElement("input");
+box1.setAttribute("id", "color1");
+box1.setAttribute("type", "text");
+document.querySelector(".controls").appendChild(box1);
+console.log(document.querySelector("#color1"));
+
 const colorsArray = [];
+const threeColorsArray = [];
 
 function getColor(event) {
     event.preventDefault();
     const colorField = document.querySelector("#color-field");
     document.querySelector(".brush").style.backgroundColor = colorField.value;
     colorsArray.push(colorField.value);
+    threeColorsArray.push(colorField.value);
+    box1.setAttribute("value", threeColorsArray[0]);
+    if (threeColorsArray.length > 3) {
+        threeColorsArray.shift()
+    }
     console.log(colorsArray);
+    console.log(colorsArray.length);
+    console.log(threeColorsArray);
+    console.log(threeColorsArray.length);
 }
+
 
 //w3schools.com
 function checkEnter(event) {
@@ -70,7 +87,7 @@ brushOn.appendChild(brushOnTxt);
 let counter = 0;
 function countClicks() {
     counter ++;
-    console.log(counter);
+    //console.log(counter);
 }
 
 function turnOnOff () {

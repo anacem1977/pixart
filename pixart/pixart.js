@@ -8,12 +8,21 @@ const form = document.querySelector("form");
 form.addEventListener("submit", getColor);
 form.addEventListener("enter", checkEnter);
 
-//CREATE BOX FOR COLOR SWATCH
+//CREATE BOXES FOR COLOR SWATCH
 const box1 = document.createElement("input");
 box1.setAttribute("id", "color1");
 box1.setAttribute("type", "text");
 document.querySelector(".controls").appendChild(box1);
-console.log(document.querySelector("#color1"));
+
+const box2 = document.createElement("input");
+box2.setAttribute("id", "color1");
+box2.setAttribute("type", "text");
+document.querySelector(".controls").appendChild(box2);
+
+const box3 = document.createElement("input");
+box3.setAttribute("id", "color1");
+box3.setAttribute("type", "text");
+document.querySelector(".controls").appendChild(box3);
 
 const colorsArray = [];
 const threeColorsArray = [];
@@ -24,10 +33,12 @@ function getColor(event) {
     document.querySelector(".brush").style.backgroundColor = colorField.value;
     colorsArray.push(colorField.value);
     threeColorsArray.push(colorField.value);
-    box1.setAttribute("value", threeColorsArray[0]);
     if (threeColorsArray.length > 3) {
         threeColorsArray.shift()
     }
+    box1.setAttribute("value", threeColorsArray[0]);
+    box2.setAttribute("value", threeColorsArray[1]);
+    box3.setAttribute("value", threeColorsArray[2]);
     console.log(colorsArray);
     console.log(colorsArray.length);
     console.log(threeColorsArray);
@@ -104,7 +115,7 @@ function turnOff() {
     document.querySelector(".controls").appendChild(brushOff);
     if (document.querySelector(".on")) {
         document.querySelector(".on").style.display = "none";
-        document.querySelector(".off").style.display = "initial";
+        document.querySelector(".off").style.display = "block";
     }
 }
 
@@ -114,6 +125,6 @@ function turnOn() {
     document.querySelector(".controls").appendChild(brushOn);
     if (document.querySelector(".off")) {
         document.querySelector(".off").style.display = "none";
-        document.querySelector(".on").style.display = "initial";
+        document.querySelector(".on").style.display = "block";
     }
 }

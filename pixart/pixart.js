@@ -9,20 +9,21 @@ form.addEventListener("submit", getColor);
 form.addEventListener("enter", checkEnter);
 
 //CREATE BOXES FOR COLOR SWATCH
-const box1 = document.createElement("input");
-box1.setAttribute("id", "color1");
-box1.setAttribute("type", "text");
-document.querySelector(".controls").appendChild(box1);
 
-const box2 = document.createElement("input");
-box2.setAttribute("id", "color1");
-box2.setAttribute("type", "text");
-document.querySelector(".controls").appendChild(box2);
+const brush1 = document.createElement("div");
+brush1.setAttribute("class", "newSquare");
+brush1.style.width = "30px";
+brush1.style.height = "30px";
 
-const box3 = document.createElement("input");
-box3.setAttribute("id", "color1");
-box3.setAttribute("type", "text");
-document.querySelector(".controls").appendChild(box3);
+const brush2 = document.createElement("div");
+brush2.setAttribute("class", "newSquare");
+brush2.style.width = "30px";
+brush2.style.height = "30px";
+
+const brush3 = document.createElement("div");
+brush3.setAttribute("class", "newSquare");
+brush3.style.width = "30px";
+brush3.style.height = "30px";
 
 const colorsArray = [];
 const threeColorsArray = [];
@@ -36,15 +37,23 @@ function getColor(event) {
     if (threeColorsArray.length > 3) {
         threeColorsArray.shift()
     }
-    box1.setAttribute("value", threeColorsArray[0]);
-    box2.setAttribute("value", threeColorsArray[1]);
-    box3.setAttribute("value", threeColorsArray[2]);
-    console.log(colorsArray);
-    console.log(colorsArray.length);
-    console.log(threeColorsArray);
-    console.log(threeColorsArray.length);
+    const newContainer = document.createElement("div");
+    newContainer.setAttribute("id", "new-cont");
+    document.querySelector("div.controls").appendChild(newContainer);
+    document.querySelector("#new-cont").appendChild(brush1);
+    brush1.style.background = threeColorsArray[0];
+    brush1.style.display ="inline-block";
+    if (threeColorsArray.length === 2){
+        document.querySelector("#new-cont").appendChild(brush2);
+        brush2.style.background = threeColorsArray[1];
+        brush2.style.display ="inline-block";
+    }
+    if (threeColorsArray.length === 3) {
+        document.querySelector("#new-cont").appendChild(brush3);
+        brush3.style.background = threeColorsArray[2];
+        brush3.style.display ="inline-block";
+    }
 }
-
 
 //w3schools.com
 function checkEnter(event) {

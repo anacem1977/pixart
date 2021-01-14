@@ -1,8 +1,8 @@
 console.log("Up and running");
 
 const cont = document.createElement("div");
-    cont.setAttribute("class", "container");
-    document.querySelector("body").appendChild(cont);
+cont.setAttribute("class", "container");
+document.querySelector("body").appendChild(cont);
 
 const form = document.querySelector("form");
 form.addEventListener("submit", getColor);
@@ -21,6 +21,8 @@ brush1.style.width = "30px";
 brush1.style.height = "30px";
 document.querySelector("#new-cont").appendChild(brush1);
 brush1.style.display = "none";
+brush1.style.marginRight = "1rem";
+brush1.addEventListener("click", getOldColor1);
 
 const brush2 = document.createElement("div");
 brush2.setAttribute("class", "newSquare");
@@ -29,6 +31,8 @@ brush2.style.width = "30px";
 brush2.style.height = "30px";
 document.querySelector("#new-cont").appendChild(brush2);
 brush2.style.display = "none";
+brush2.style.marginRight = "1rem";
+brush2.addEventListener("click", getOldColor2);
 
 const brush3 = document.createElement("div");
 brush3.setAttribute("class", "newSquare");
@@ -37,6 +41,7 @@ brush3.style.width = "30px";
 brush3.style.height = "30px";
 document.querySelector("#new-cont").appendChild(brush3);
 brush3.style.display = "none";
+brush3.addEventListener("click", getOldColor3);
 
 const colorsArray = [];
 const threeColorsArray = [];
@@ -66,6 +71,21 @@ function getColor(event) {
         document.querySelector("#secondBrush").style.background = threeColorsArray[1];
         document.querySelector("#thirdBrush").style.background = threeColorsArray[2]; 
     }
+}
+
+function getOldColor1 (event) {
+    event.preventDefault();
+    document.querySelector(".brush").style.backgroundColor = document.querySelector("#firstBrush").style.background;
+}
+
+function getOldColor2 (event) {
+    event.preventDefault();
+    document.querySelector(".brush").style.backgroundColor = document.querySelector("#secondBrush").style.background;
+}
+
+function getOldColor3 (event) {
+    event.preventDefault();
+    document.querySelector(".brush").style.backgroundColor = document.querySelector("#thirdBrush").style.background;
 }
 
 //w3schools.com

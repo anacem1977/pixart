@@ -58,8 +58,6 @@ function getColor(event) {
     }
     document.querySelector("#firstBrush").style.background = threeColorsArray[0];
     brush1.style.display ="inline-block";
-    console.log(colorsArray);
-    console.log(threeColorsArray);
     if (colorsArray.length === 2){
         document.querySelector("#secondBrush").style.background = colorsArray[1];
         brush2.style.display ="inline-block";
@@ -110,7 +108,6 @@ const hovered = document.querySelector(".container");
 hovered.addEventListener("mouseover", changeColor);
 
 const clicked = document.querySelector(".container");
-//clicked.addEventListener("click", turnOff);
 clicked.addEventListener("click", countClicks);
 clicked.addEventListener("click", turnOnOff);
 
@@ -130,17 +127,9 @@ const brushOnTxt = document.createTextNode("Paintbrush On");
 brushOn.setAttribute("class", "on");
 brushOn.appendChild(brushOnTxt);
 
-//at first click
-    //it shold turn the pain off and set a message
-//at second click
-    //it shold remove the message and put a new one, and set the brush on
-//at next click
-    //it shold remove the message and put a new one, and set the brush off
-
 let counter = 0;
 function countClicks() {
     counter ++;
-    //console.log(counter);
 }
 
 function turnOnOff () {
@@ -152,7 +141,6 @@ function turnOnOff () {
 }
 
 function turnOff() {
-    console.log("Running turnOff");
     hovered.removeEventListener("mouseover", changeColor);
     document.querySelector(".controls").appendChild(brushOff);
     if (document.querySelector(".on")) {
@@ -162,7 +150,6 @@ function turnOff() {
 }
 
 function turnOn() {
-    console.log("Running turnOn");
     hovered.addEventListener("mouseover", changeColor);
     document.querySelector(".controls").appendChild(brushOn);
     if (document.querySelector(".off")) {
